@@ -1,0 +1,26 @@
+{
+    "name": "mirhamit/searchable",
+    "description": "A Minimal Laravel Search Package",
+    "keywords": [
+        "laravel",
+        "MirHamit",
+        "search"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "MirHamit\\Searchable\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hamid Musavi",
+            "email": "w1w@yahoo.com",
+            "homepage": "https://kratos.ir",
+            "role": "Developer"
+        }
+    ],
+    "require": {},
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
