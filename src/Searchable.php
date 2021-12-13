@@ -18,6 +18,7 @@ trait Searchable
      */
     public static function scopeSearch($query, $searchFields, bool $filterFields = false)
     {
+        $filterFields === null ?? $filterFields = false;
         $searchKeywords = [];
         $tableFields = static::getSearchableFields();
         if (is_string($searchFields) || $searchFields === null || !$searchFields) {
