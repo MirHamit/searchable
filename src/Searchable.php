@@ -16,9 +16,9 @@ trait Searchable
      * @param  boolean  $filterFields
      * @return mixed
      */
-    public static function scopeSearch($query, $searchFields, bool $filterFields = false)
+    public static function scopeSearch($query, $searchFields, $filterFields = false)
     {
-        $filterFields === null ?? $filterFields = false;
+        !$filterFields ?? $filterFields = false;
         $searchKeywords = [];
         $tableFields = static::getSearchableFields();
         if (is_string($searchFields) || $searchFields === null || !$searchFields) {
