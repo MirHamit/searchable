@@ -21,7 +21,7 @@ trait Searchable
         !$filterFields ?? $filterFields = false;
         $searchKeywords = [];
         $tableFields = static::getSearchableFields();
-        if (is_string($searchFields) || $searchFields === null || !$searchFields) {
+        if (is_string($searchFields)) {
             $searchKeywords[] = $searchFields;
         } else {
             foreach ($searchFields as $key => $value) {
@@ -30,7 +30,6 @@ trait Searchable
                 }
             }
         }
-
         if (empty($searchKeywords)) {
             return $query;
         }
@@ -46,6 +45,7 @@ trait Searchable
         foreach ($searchKeywords as $searchKey => $searchValue) {
             if (!is_string($searchKey)) {
                 foreach (self::getSearchableFields() as $searchableField) {
+
                     //                    $query->orWhere($searchableField, 'LIKE', "%$searchValue%");
                     $filter ? $query->where($searchableField, 'LIKE', "%$searchValue%") :
                         $query->orWhere($searchableField, 'LIKE', "%$searchValue%");
